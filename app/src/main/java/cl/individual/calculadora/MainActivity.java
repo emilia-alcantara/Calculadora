@@ -28,11 +28,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String num1 = numero1.getText().toString();
-                int number1 = Integer.parseInt(num1);
                 String num2 = numero2.getText().toString();
-                int number2 = Integer.parseInt(num2);
-                Toast.makeText(getBaseContext(), "The result is: " + add(number1, number2), Toast.LENGTH_LONG).show();
 
+                if (num1.trim().isEmpty() || num2.trim().isEmpty()) {
+                    Toast.makeText(getBaseContext(), "Debe ingresar ambos numeros", Toast.LENGTH_LONG).show();
+                } else {
+                    int number1 = Integer.parseInt(num1);
+                    int number2 = Integer.parseInt(num2);
+                    Toast.makeText(getBaseContext(), "El resultado es: " + add(number1, number2), Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -40,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String num1 = numero1.getText().toString();
-                int number1 = Integer.parseInt(num1);
                 String num2 = numero2.getText().toString();
-                int number2 = Integer.parseInt(num2);
-                Toast.makeText(getBaseContext(), "The result is: " + subtract(number1, number2), Toast.LENGTH_LONG).show();
+                if (num1.trim().isEmpty() || num2.trim().isEmpty()) {
+                    Toast.makeText(getBaseContext(), "Debe ingresar ambos numeros", Toast.LENGTH_LONG).show();
+                } else {
+                    int number1 = Integer.parseInt(num1);
+                    int number2 = Integer.parseInt(num2);
+                    Toast.makeText(getBaseContext(), "El resultado es: " + subtract(number1, number2), Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -51,10 +59,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String num1 = numero1.getText().toString();
-                int number1 = Integer.parseInt(num1);
                 String num2 = numero2.getText().toString();
-                int number2 = Integer.parseInt(num2);
-                Toast.makeText(getBaseContext(), "The result is: " + multiply(number1, number2), Toast.LENGTH_LONG).show();
+                if (num1.trim().isEmpty() || num2.trim().isEmpty()) {
+                    Toast.makeText(getBaseContext(), "Debe ingresar ambos numeros", Toast.LENGTH_LONG).show();
+                } else {
+                    int number1 = Integer.parseInt(num1);
+                    int number2 = Integer.parseInt(num2);
+                    Toast.makeText(getBaseContext(), "El resultado es: " + multiply(number1, number2), Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -62,10 +74,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String num1 = numero1.getText().toString();
-                int number1 = Integer.parseInt(num1);
                 String num2 = numero2.getText().toString();
+
+                if (num1.trim().isEmpty() || num2.trim().isEmpty()) {
+                    Toast.makeText(getBaseContext(), "Debe ingresar ambos numeros", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                int number1 = Integer.parseInt(num1);
                 int number2 = Integer.parseInt(num2);
-                Toast.makeText(getBaseContext(), "The result is: " + divide(number1, number2), Toast.LENGTH_LONG).show();
+                if (number2 == 0) {
+                    Toast.makeText(getBaseContext(),  "Ingrese un divisor distinto de 0!" , Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getBaseContext(), "El resultado es: " + divide(number1, number2), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
